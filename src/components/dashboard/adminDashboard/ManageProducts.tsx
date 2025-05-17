@@ -108,25 +108,25 @@ const ManageProducts = ({ userId }: { userId: string }) => {
                 </tr>
               </thead>
               <tbody>
-                {products.length > 0 ? (
-                  products.map((product) => (
+                {products?.length > 0 ? (
+                  products?.map((product) => (
                     <tr key={product._id} className="hover:bg-gray-50">
                       <td className="p-3 border-b">
                         <Image
-                          src={product.img}
-                          alt={product.title}
+                          src={product?.img}
+                          alt={product?.title}
                           width={100}
                           height={100}
                           className="w-10 h-10 object-cover rounded"
                         />
                       </td>
-                      <td className="p-3 border-b">{product.title}</td>
+                      <td className="p-3 border-b">{product?.title}</td>
                       <td className="p-3 border-b w-[100px]">
                         <div className="w-[100px] overflow-x-auto whitespace-nowrap">
-                          {product.description}
+                          {product?.description}
                         </div>
                       </td>
-                      <td className="p-3 border-b">{product.price} bdt</td>
+                      <td className="p-3 border-b">{product?.price} $</td>
                       <td className="p-3 border-b space-x-2">
                         <button
                           className="bg-blue-500 text-white px-3 py-1 rounded cursor-pointer"
@@ -139,7 +139,7 @@ const ManageProducts = ({ userId }: { userId: string }) => {
                         </button>
                         <button
                           className="bg-red-500 text-white px-3 py-1 rounded cursor-pointer"
-                          onClick={() => handleDelete(product._id)}
+                          onClick={() => handleDelete(product?._id)}
                         >
                           Delete
                         </button>

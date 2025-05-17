@@ -16,7 +16,7 @@ const ProductsPage = () => {
   const fetchProducts = async (currentPage: number) => {
     setLoading(true);
     try {
-      const res = await getProducts(currentPage, 6);
+      const res = await getProducts(currentPage, 10);
       if (res?.data) {
         setProductsData(res.data);
         setTotalPages(res.totalPages);
@@ -52,25 +52,53 @@ const ProductsPage = () => {
     <div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
         {productsData.map((item) => (
+          // <div
+          //   key={item._id}
+          //   className="rounded-xl border border-[#E8E8E8] p-5 w-[364px] h-[348px]"
+          // >
+          //   <Image
+          //     className="rounded-xl"
+          //     src={item.img}
+          //     width={364}
+          //     height={208}
+          //     alt="logo"
+          //   />
+          //   <div className="">
+          //     <p className="text-[25px] font-bold my-3">{item.title}</p>
+          //     <p className="text-[#FF3811] font-semibold text-xl flex justify-between items-center">
+          //       {item.price}
+          //       <Link href={`/products/${item._id}`}>
+          //         <FaArrowRight />
+          //       </Link>
+          //     </p>
+          //   </div>
+
+          // </div>
           <div
-            key={item._id}
-            className="rounded-xl border border-[#E8E8E8] p-5 w-[364px] h-[348px]"
-          >
-            <Image
-              className="rounded-xl"
-              src={item.img}
-              width={364}
-              height={208}
-              alt="logo"
-            />
-            <p className="text-[25px] font-bold my-3">{item.title}</p>
-            <p className="text-[#FF3811] font-semibold text-xl flex justify-between items-center">
-              {item.price}
-              <Link href={`/products/${item._id}`}>
-                <FaArrowRight />
-              </Link>
-            </p>
-          </div>
+  key={item._id}
+  className="rounded-xl border border-[#E8E8E8] p-5 w-[364px] h-[348px] flex flex-col justify-between"
+>
+  {/* Top Image */}
+  <Image
+    className="rounded-xl"
+    src={item.img}
+    width={364}
+    height={208}
+    alt="logo"
+  />
+
+  {/* Bottom Text */}
+  <div>
+    <p className="text-[25px] font-bold my-3">{item.title}</p>
+    <p className="text-[#FF3811] font-semibold text-xl flex justify-between items-center">
+      {item.price} $
+      <Link href={`/products/${item._id}`}>
+        <FaArrowRight />
+      </Link>
+    </p>
+  </div>
+</div>
+
         ))}
       </div>
 
