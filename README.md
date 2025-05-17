@@ -38,6 +38,7 @@ git clone https://github.com/your-username/product-management-system.git
 cd product-management-system
 
 ----------
+.env.local
 NEXT_PUBLIC_MONGODB_URL=mongodb+srv://mongooseproject:i7sEySjchbKjejj1@cluster0.fgemqio.mongodb.net/product-management-system
 NEXTAUTH_SECRET=secret
 
